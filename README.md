@@ -9,3 +9,9 @@ Poder proporcionar información verás y confiable proveniente de las experienci
 
 ## Resumen
 Conectamos moteros con preguntas, con moteros que tienen experiencia para dar respuestas. Y así crear una comunidad digital Biker completamente sostenible
+
+## Autores:
+
+- Jesús Morán Espinoza / FullStack Developer & Scrum Master
+- Alvaro Gil / FullStack Developer
+- Juan Ospina / FullStack Developer
