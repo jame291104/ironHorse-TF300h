@@ -2,7 +2,7 @@
 // 1. Importamos las dependencias y modulos que necesitamos
 
 import express from "express";
-import dotenv from "dotenv"
+import dotenv from "dotenv";
 import { connectionMongo } from "./src/config/dataBase.js";
 
 // 2 configurar el uso de nuestro servidor
@@ -11,6 +11,8 @@ dotenv.config()
 connectionMongo()
 
 const port = process.env.PORT;
+console.log("PORT", process.env.PORT);
+
 
 app.use(express.json());
 

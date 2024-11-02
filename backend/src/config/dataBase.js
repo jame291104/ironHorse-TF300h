@@ -5,6 +5,8 @@ import mongoose from "mongoose";
 // 2. Creamos una funcion para conectar la base de datos
 
 export async function connectionMongo() {
+    console.log("DB_URL", process.env.DB_URL);
+    
 
     try {
         await mongoose.connect(process.env.DB_URL);
