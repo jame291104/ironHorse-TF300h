@@ -6,9 +6,9 @@ const postSchema = new mongoose.Schema({
   // contenido del post
     content: { type: String, required: true },
   // nombre de autor del post
-    author: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    author: { type: String, required: false },
   // categoria del post si es noticias,mantenimientos de moto,rutas para roda,modelos de motos
-    category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' },
+    category: { type: String, required: false },
   // fecha del post
   createdAt: { type: Date, default: Date.now },
   //actualizar post
@@ -17,4 +17,4 @@ const postSchema = new mongoose.Schema({
   views: { type: Number, default: 0 },
 });
 
-export default mongoose.model('Post', postSchema);
+export default mongoose.model('post', postSchema);
