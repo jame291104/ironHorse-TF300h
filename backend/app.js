@@ -1,4 +1,3 @@
-// Vamos a configurar nuestro servidor con Express y vamos a gestionar todo lo relacionado  con la logica de negocio -> conexion de base de datos, peticiones, respuestas
 // 1. Importamos las dependencias y modulos que necesitamos
 
 import express from "express";
@@ -14,9 +13,9 @@ connectionMongo()
 const port = process.env.PORT;
 console.log("PORT", process.env.PORT);
 
-
+//rutas
 app.use(express.json());
 app.use('/api/publicaciones', publicacionRouter);
 
-// 3. Ejecutar el servidor en nuestro computador
+// 3. Ejecutar el servidor
 app.listen(port, () => {console.log("We are conected ironhorse", port)})
