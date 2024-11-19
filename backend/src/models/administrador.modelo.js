@@ -1,3 +1,6 @@
+import mongoose from 'mongoose';
+
+
 const adminSchema = new mongoose.Schema({
     // Nombre de usuario único y requerido para identificar al administrador
     username: { type: String, required: true, unique: true },
@@ -10,12 +13,12 @@ const adminSchema = new mongoose.Schema({
   
     // Rol del administrador que define el nivel de acceso('superadmin').
     //  El administrador puede editar publicaciones de usuarios.
-    role: { type: String, enum: ['superadmin', 'editor', 'moderator'], default: 'editor' },
+    role: { type: String, enum: ['superadmin'] },
   
     // Aqui se define los permisos específicos del administrador
     permissions: {
       // Permiso para crear publicaciones
-      createPost: { type: Boolean, default: true },
+      content: { type: String, required: true },
       // Permiso para editar publicaciones, activado por defecto
       editPost: { type: Boolean, default: true },
       // Permiso para eliminar publicaciones, desactivado por defecto
