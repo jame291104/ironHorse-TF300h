@@ -12,7 +12,7 @@ const postSchema = new mongoose.Schema({
   // fecha del post
   createdAt: { type: Date, default: Date.now },
   //actualizar post
-  updatedAt: { type: Date },
+  updatedAt: { type: Date }, // TO DO JESUS: Predefinir la fecha de actualizacion con la fecha de creacion para evitar que se vaya vacía
  // ver numero de vistas
   views: { type: Number, default: 0 },
 });

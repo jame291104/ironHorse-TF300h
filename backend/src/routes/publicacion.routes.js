@@ -7,8 +7,8 @@ import authMiddleware from '../middleware/auth.js';
 const publicacionRouter = express.Router();
 
 // Rutas de publicaciones
-publicacionRouter.get('/obtener', authMiddleware('admin'), getPublicacion);
-publicacionRouter.get('/obtener/:id', authMiddleware('admin'), getPublicacionById);
+publicacionRouter.get('/obtener', getPublicacion); // Probado
+publicacionRouter.get('/obtener/:id', getPublicacionById); // Probado
 publicacionRouter.post('/crear', postPublicacion);
 publicacionRouter.put('/actualizar/:id', putPublicacionById);
 publicacionRouter.delete('/eliminar/:id', deletePublicacionById);

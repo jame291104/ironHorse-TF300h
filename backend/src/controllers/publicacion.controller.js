@@ -1,12 +1,13 @@
 import Post from '../models/publicacion.model.js'; 
 import mongoose from 'mongoose';
+import publicacionModel from '../models/publicacion.model.js';
 
 // Crear un nuevo post
 // controllers/publicacion.Controller.js
 
 export const getPublicacion = async (req, res) => {
   try {
-    const publicaciones = await PublicacionModel.find(); // Usando modelo para obtener publicaciones
+    const publicaciones = await publicacionModel.find(); // Usando modelo para obtener publicaciones
     res.status(200).json(publicaciones);
   } catch (error) {
     res.status(500).json({ message: 'Error al obtener publicaciones', error: error.message });
@@ -16,7 +17,7 @@ export const getPublicacion = async (req, res) => {
 export const getPublicacionById = async (req, res) => {
   try {
     const { id } = req.params;
-    const publicacion = await PublicacionModel.findById(id);
+    const publicacion = await publicacionModel.findById(id);
     
     if (!publicacion) {
       return res.status(404).json({ message: 'Publicación no encontrada' });
@@ -30,7 +31,7 @@ export const getPublicacionById = async (req, res) => {
 
 export const postPublicacion = async (req, res) => {
   try {
-    const newPublicacion = await PublicacionModel.create(req.body); // Crear publicación
+    const newPublicacion = await publicacionModel.create(req.body); // Crear publicación
     res.status(201).json(newPublicacion);
   } catch (error) {
     res.status(400).json({ message: 'Error al crear publicación', error: error.message });
@@ -40,7 +41,7 @@ export const postPublicacion = async (req, res) => {
 export const putPublicacionById = async (req, res) => {
   try {
     const { id } = req.params;
-    const updatedPublicacion = await PublicacionModel.findByIdAndUpdate(id, req.body, { new: true });
+    const updatedPublicacion = await publicacionModel.findByIdAndUpdate(id, req.body, { new: true });
     
     if (!updatedPublicacion) {
       return res.status(404).json({ message: 'Publicación no encontrada' });
@@ -55,7 +56,7 @@ export const putPublicacionById = async (req, res) => {
 export const deletePublicacionById = async (req, res) => {
   try {
     const { id } = req.params;
-    const deletedPublicacion = await PublicacionModel.findByIdAndDelete(id);
+    const deletedPublicacion = await publicacionModel.findByIdAndDelete(id);
     
     if (!deletedPublicacion) {
       return res.status(404).json({ message: 'Publicación no encontrada' });

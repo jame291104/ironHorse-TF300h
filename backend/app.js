@@ -17,8 +17,8 @@ console.log("PORT", port);
 
 // Middlewares y rutas
 app.use(express.json());
-app.use('/api/publicaciones', publicacionRouter);
-app.use('/api/adminRoute', adminRouter); 
+app.use('/publicaciones', publicacionRouter);
+app.use('/adminRoute', adminRouter); 
 app.use('/usuarios',userRouter);//importe mis rutas
 app.use('/login', loginRoutes);
 
