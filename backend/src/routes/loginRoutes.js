@@ -1,13 +1,13 @@
 import express from 'express';
-import { loginController } from '../controllers/loginController.js';
 // loginRoutes.js
-import authMiddleware  from '../middleware/auth.js';  // Importación con llaves
+import authMiddleware  from '../middleware/auth.js';  
+import { loginService } from '../services/loginService.js';
 
 
 const router = express.Router();
 
 // Ruta para iniciar sesión
-router.post('/login', loginController);
+router.post('/', loginService);
 
 // Ruta protegida de ejemplo
 router.get('/protected', authMiddleware, (req, res) => {
