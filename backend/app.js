@@ -6,7 +6,7 @@ import publicacionRouter from './src/routes/publicacion.routes.js';
 import adminRouter from "./src/routes/adminRoutes.js";
 import { userRouter } from './src/routes/user.routes.js';
 
-import loginRoutes from './src/routes/loginRoutes.js';
+import loginRoutes from './src/routes/login.routes.js';
 // 2. Configurar el uso de nuestro servidor
 const app = express();
 dotenv.config();
