@@ -41,7 +41,7 @@ export const loginService = async (request, response) => {
         // Crear el payload para el token
         const payload = {
             id: userFound._id,
-            name: userFound.userName,
+            name: userFound.username,
             role: userFound.role, // Incluye el rol del usuario en el payload
         };
 

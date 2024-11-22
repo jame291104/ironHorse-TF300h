@@ -6,7 +6,7 @@ import publicacionRouter from './src/routes/publicacion.routes.js';
 import adminRouter from "./src/routes/adminRoutes.js";
 import { userRouter } from './src/routes/user.routes.js';
 
-import loginRoutes from './src/routes/login.routes.js';
+import loginRouter from './src/routes/login.routes.js';
 // 2. Configurar el uso de nuestro servidor
 const app = express();
 dotenv.config();
@@ -18,9 +18,9 @@ console.log("PORT", port);
 // Middlewares y rutas
 app.use(express.json());
 app.use('/publicaciones', publicacionRouter);
-app.use('/adminRoute', adminRouter); 
+app.use('/admin', adminRouter); 
 app.use('/usuarios',userRouter);//importe mis rutas
-app.use('/login', loginRoutes);
+app.use('/login', loginRouter);
 
 
 // 3. Ejecutar el servidor

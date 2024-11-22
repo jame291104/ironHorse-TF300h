@@ -22,11 +22,11 @@ const adminSchema = new mongoose.Schema({
       // Permiso para editar publicaciones, activado por defecto
       editPost: { type: Boolean, default: true },
       // Permiso para eliminar publicaciones, desactivado por defecto
-      deletePost: { type: Boolean, default: false },
+      deletePost: { type: Boolean, default: true },
       // Permiso para gestionar categorías en el blog, desactivado por defecto
-      manageCategories: { type: Boolean, default: false },
+      manageCategories: { type: Boolean, default: true },
       // Permiso para gestionar otros usuarios, desactivado por defecto esto ayuda a limitar el acceso es decir solo abra un administrador 
-      manageUsers: { type: Boolean, default: false },
+      manageUsers: { type: Boolean, default: true },
     },
   
     // Fecha de creación del administrador, se asigna automáticamente la fecha actual

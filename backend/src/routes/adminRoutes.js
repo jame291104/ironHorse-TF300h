@@ -7,21 +7,23 @@ import {
     deleteAdmin
 } from "../controllers/admin.controller.js";
 
-const router = express.Router();
+import authMiddleware from "../middleware/auth.js";
+
+const adminRouter = express.Router();
 
 // Ruta para crear un nuevo administrador
-router.post("/crear", createAdmin);
+adminRouter.post("/crear", authMiddleware("superadmin"), createAdmin);
 
 // Ruta para obtener todos los administradores
-router.get("/obtener", getAllAdmins);
+adminRouter.get("/obtener", authMiddleware("superadmin"), getAllAdmins);
 
 // Ruta para obtener un administrador por su ID
-router.get("/admin/:id", getAdminById);
+adminRouter.get("/admin/:id", authMiddleware("superadmin"), getAdminById);
 
 // Ruta para actualizar un administrador
-router.put("/admin/:id", updateAdmin);
+adminRouter.put("/admin/:id", authMiddleware("superadmin"), updateAdmin);
 
 // Ruta para eliminar un administrador
-router.delete("/admin/:id", deleteAdmin);
+adminRouter.delete("/admin/:id", authMiddleware("superadmin"), deleteAdmin);
 
-export default router;
+export default adminRouter;
