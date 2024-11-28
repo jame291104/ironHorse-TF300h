@@ -4,11 +4,12 @@ import { LoginComponent } from './paginas/login/login.component';
 import { ProductosComponent } from './paginas/productos/productos.component';
 import { AdminComponent } from './paginas/admin/admin.component';
 import { RegistroComponent } from './paginas/registro/registro.component';
-
+import { NoFoundComponent } from './paginas/no-found/no-found.component';
 export const routes: Routes = [
     {path: '', component:InicioComponent,title: 'inicio'},
     {path: 'inicio sesion', component: LoginComponent, title: 'inicio sesion'},
     {path: 'productos', component: ProductosComponent,title: 'productos'},
     {path: 'panel admin', component: AdminComponent, title: ' panel admin'},
-    {path: 'registro', component: RegistroComponent, title: 'registro'}
+    {path: 'registro', component: RegistroComponent, title: 'registro'},
+    {path: '**', component: NoFoundComponent, title:'error 404'}
 ];
