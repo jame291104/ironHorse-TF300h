@@ -11,7 +11,7 @@ import { UsuariosComponent } from './paginas/admin/usuarios/usuarios.component';
 
 export const routes: Routes = [
     {path: '', component:InicioComponent,title: 'inicio'},
-    {path: 'inicio sesion', component: LoginComponent, title: 'inicio sesion'},
+    {path: 'login', component: LoginComponent, title: 'inicio sesion'},
     {path: 'productos', component: ProductosComponent,title: 'productos'},
     {path: 'admin', component: AdminComponent, title: ' panel admin', children:
         [
