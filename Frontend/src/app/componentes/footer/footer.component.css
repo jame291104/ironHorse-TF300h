@@ -1,0 +1,38 @@
+footer {
+    background-color: rgb(33, 37, 41);
+    color: white; 
+    padding: 20px; 
+    text-align: left; 
+}
+
+footer h4{
+    font-family: var(--font-text);
+}
+
+footer p{
+    font-family: var(--second-font);
+}
+.footer-content {
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom: 20px; 
+}
+
+.footer-content div {
+    flex: 1; 
+    margin: 0 10px; 
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 14px; 
+}
+
+.footer-bottom .social-media a {
+    margin: 0 10px; 
+    color: white; 
+}
+
+.footer-bottom .social-media a:hover {
+    text-decoration: underline; 
+}
