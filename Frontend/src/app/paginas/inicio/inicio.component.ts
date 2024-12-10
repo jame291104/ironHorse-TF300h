@@ -12,3 +12,4 @@ import { FooterComponent } from '../../componentes/footer/footer.component';
 export class InicioComponent {
 
 }
+//prueba//
