@@ -14,7 +14,6 @@ private _httpClient = inject(HttpClient);
 private apiUrl = 'http://localhost:9000/usuarios/';
 
 postUsuarios(user: Usuarios){
-  //crear usuario, necesito la ruta y el body
   return this._httpClient.post(this.apiUrl + '/crear',user);
 }
 //peticiones get
