@@ -93,3 +93,31 @@
 .text-container button:hover {
     background-color: #0056b3;
 }
+
+/* Responsividad para dispositivos pequeños */
+@media (max-width: 390px) {
+    /* Ajustes específicos para pantallas pequeñas */
+    .rodada-card-container {
+        margin: 10px 0; /* Añadir margen entre tarjetas */
+    }
+
+    .rodadas-container h2.eventos {
+        font-size: 2rem; /* Ajustar tamaño del título */
+    }
+
+    .text-container .card-title {
+        font-size: 1.2rem; /* Tamaño más pequeño del título */
+    }
+
+    .text-container .card-paragraph {
+        font-size: 0.9rem; /* Tamaño más pequeño del párrafo */
+    }
+    .newsletter{
+        display: none;
+    }
+
+    .text-container button {
+        font-size: 0.9rem; /* Tamaño más pequeño del botón */
+    }
+
+}
