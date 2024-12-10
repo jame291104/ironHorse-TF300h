@@ -1,7 +1,7 @@
 // routes/publicacion.routes.js
 
 import express from 'express';
-import { getPublicacion, getPublicacionById, postPublicacion, putPublicacionById, deletePublicacionById } from '../controllers/publicacion.Controller.js';
+import { getPublicacion, getPublicacionById, postPublicacion, putPublicacionById, deletePublicacionById } from '../controllers/publicacion.controller.js';
 import authMiddleware from '../middleware/auth.js';
 
 const publicacionRouter = express.Router();
