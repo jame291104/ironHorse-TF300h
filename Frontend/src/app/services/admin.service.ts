@@ -11,7 +11,7 @@ export class AdminService {
 
   private _httpClient = inject(HttpClient);
 
-  private apiUrl = 'http://localhost:9000/adminRoute';
+  private apiUrl = 'http://localhost:9000/admin';
 
     // Petición POST: Crear un admin
     postAdmin(admin: Admin) {
