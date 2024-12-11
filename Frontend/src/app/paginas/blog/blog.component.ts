@@ -5,7 +5,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-blog',
   standalone: true,
   imports: [RouterOutlet, RouterLink],
-  templateUrl: './blog.component.html',
+  templateUrl:'./blog.component.html',
   styleUrl: './blog.component.css'
 })
 export class BlogComponent {

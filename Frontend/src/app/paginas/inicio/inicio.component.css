@@ -2,6 +2,7 @@
 .word-1 {
     color: #333333; /* Cambia el color de 'Articulos' a azul */
     font-family: "Bebas Neue";
+    margin-right: 5px;
 }
 
 
