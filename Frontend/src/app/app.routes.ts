@@ -12,9 +12,11 @@ import { UsuariosComponent } from './paginas/admin/usuarios/usuarios.component';
 import { BlogComponent } from './paginas/blog/blog.component';
 import { ArticleComponent } from './paginas/blog/article/article.component';
 import { MeetingsComponent } from './paginas/blog/meetings/meetings.component';
+import { PerfilUserComponent } from './paginas/perfil-user/perfil-user.component';
 //aca nos creamos las rutas para cada componente pagina
 export const routes: Routes = [
     {path:'', component: InicioComponent, title: 'inicio'},
+    {path: 'perfil-user', component: PerfilUserComponent, title:'perfil-user'},
     {path: 'registro', component: RegistroComponent, title: 'registro'},
     {path: 'login', component: LoginComponent, title: 'inicio Sesion'},
     {path: 'admin', component: AdminComponent, title: 'Panel admin', children:
