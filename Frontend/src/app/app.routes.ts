@@ -12,6 +12,7 @@ import { UsuariosComponent } from './paginas/admin/usuarios/usuarios.component';
 import { BlogComponent } from './paginas/blog/blog.component';
 import { ArticleComponent } from './paginas/blog/article/article.component';
 import { MeetingsComponent } from './paginas/blog/meetings/meetings.component';
+import { AboutUsComponent } from './paginas/about-us/about-us.component';
 import { PerfilUserComponent } from './paginas/perfil-user/perfil-user.component';
 //aca nos creamos las rutas para cada componente pagina
 export const routes: Routes = [
@@ -32,6 +33,8 @@ export const routes: Routes = [
             {path: 'meetings', component:MeetingsComponent, title:'meetings'}
         ]
     },
+    {path: 'sobre-nosotros', component:AboutUsComponent, title:'sobre nosotros'},
     {path: '**', component: NoFoundComponent, title:'error 404'},
+
 ];
 

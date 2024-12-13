@@ -2,7 +2,6 @@
 .word-1 {
     color: #333333; /* Cambia el color de 'Articulos' a azul */
     font-family: "Bebas Neue";
-    margin-right: 5px;
 }
 
 
@@ -11,7 +10,51 @@
     font-family: "Bebas Neue";
 }
 
+/* Asegura que todas las tarjetas tengan la misma altura */
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Esto asegura que las tarjetas tengan la misma altura */
+}
 
+.card-img-top {
+    width: 100%;
+    height: 200px; /* Ajusta la altura de la imagen de las tarjetas */
+    object-fit: cover; /* Asegura que la imagen no se distorsione y cubra el área */
+}
+
+/* Asegura que el contenido dentro de las tarjetas se distribuya correctamente */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Ocupa toda la altura disponible de la tarjeta */
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 1rem;
+    flex-grow: 1; /* Hace que el párrafo ocupe el espacio restante */
+}
+
+/* Botón al final */
+.btn {
+    margin-top: auto; /* Asegura que el botón se quede en la parte inferior */
+}
+
+/* Margen y padding consistentes */
+.mb-4 {
+    margin-bottom: 20px;
+}
+
+.py-6 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
 .card-title {
     font-family: "Bebas Neue";
     font-size: 24px;
@@ -93,32 +136,4 @@
 
 .text-container button:hover {
     background-color: #0056b3;
-}
-
-/* Responsividad para dispositivos pequeños */
-@media (max-width: 390px) {
-    /* Ajustes específicos para pantallas pequeñas */
-    .rodada-card-container {
-        margin: 10px 0; /* Añadir margen entre tarjetas */
-    }
-
-    .rodadas-container h2.eventos {
-        font-size: 2rem; /* Ajustar tamaño del título */
-    }
-
-    .text-container .card-title {
-        font-size: 1.2rem; /* Tamaño más pequeño del título */
-    }
-
-    .text-container .card-paragraph {
-        font-size: 0.9rem; /* Tamaño más pequeño del párrafo */
-    }
-    .newsletter{
-        display: none;
-    }
-
-    .text-container button {
-        font-size: 0.9rem; /* Tamaño más pequeño del botón */
-    }
-
 }
