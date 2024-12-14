@@ -5,7 +5,7 @@ import { FooterComponent } from '../../componentes/footer/footer.component';
 @Component({
   selector: 'app-inicio',
   standalone: true,
-  imports: [NavBarComponent,FooterComponent],
+  imports: [NavBarComponent,FooterComponent, ArticleCardComponent],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css'
 })
