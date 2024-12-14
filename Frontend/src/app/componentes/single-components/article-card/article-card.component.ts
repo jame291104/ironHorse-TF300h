@@ -29,8 +29,8 @@ export class ArticleCardComponent {
     this._publicacionService.getPublicacion().subscribe({
       next: (res: any) => {
         // Si funciona
-        console.log(res.data);
-        this.allPosts = res.data
+        console.log(res);
+        this.allPosts = res
         
       },
       error: (error: any) => {
