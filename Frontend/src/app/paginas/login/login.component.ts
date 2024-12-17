@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LoginService } from '../../services/login.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,52 +12,82 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+  formularioLogin: FormGroup;
+  formularioRegistro: FormGroup;
 
-  constructor(private toastr: ToastrService) {}
-
-  // Formulario de login
-  formularioLogin = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]), // Validación de email
-    password: new FormControl('', [Validators.required]) // Validación de contraseña
-  });
-
-  // Formulario de registro
-  formularioRegistro = new FormGroup({
-    name: new FormControl('', [Validators.required]), // Validación de nombre
-    email: new FormControl('', [Validators.required, Validators.email]), // Validación de email
-    password: new FormControl('', [Validators.required]), // Validación de contraseña
-    confirmPassword: new FormControl('', [Validators.required]) // Confirmar contraseña
-  });
-
-  // Manejar el submit de login
-  handleLoginSubmit() {
-    if (this.formularioLogin.valid) {
-      console.log('Esta es la información obtenida del formulario de login: ', this.formularioLogin.value);
-      this.toastr.success('Inicio de sesión exitoso', '¡Éxito!');
-    } else {
-      console.log('Formulario de login inválido');
-      this.toastr.error('Por favor complete todos los campos correctamente', 'Error en inicio de sesión');
-    }
+  constructor(
+    private fb: FormBuilder,
+    private loginService: LoginService,
+    private toastr: ToastrService,
+    private router: Router
+  ) {
+    this.formularioLogin = this.initLoginForm();
+    this.formularioRegistro = this.initRegisterForm();
   }
 
-  // Manejar el submit de registro
-  handleRegisterSubmit() {
-    const { password, confirmPassword } = this.formularioRegistro.value;
+  ngOnInit(): void {}
 
-    if (this.formularioRegistro.invalid) {
-      console.log('Formulario de registro inválido');
-      this.toastr.error('Por favor complete todos los campos correctamente', 'Error en registro');
+  // Inicialización del formulario de login
+  private initLoginForm(): FormGroup {
+    return this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
+  }
+
+  // Inicialización del formulario de registro
+  private initRegisterForm(): FormGroup {
+    return this.fb.group({
+      name: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', [Validators.required]]
+    });
+  }
+
+  // Manejo del formulario de inicio de sesión
+  handleLoginSubmit(): void {
+    if (this.formularioLogin.invalid) {
+      this.toastr.error('Por favor, completa los campos correctamente.');
       return;
     }
+
+    const { email, password } = this.formularioLogin.value;
+    const credenciales = { emailLogin: email, passwordLogin: password };
+
+    this.loginService.inicioSesion(credenciales).subscribe({
+      next: (response: any) => {
+        localStorage.setItem('token', response.token);
+        this.toastr.success('Inicio de sesión exitoso.');
+        this.loginService.redireccionar();
+      },
+      error: (err) => {
+        this.toastr.error('Error al iniciar sesión. Verifica tus credenciales.');
+        console.error(err);
+      }
+    });
+  }
+
+  // Manejo del formulario de registro
+  handleRegisterSubmit(): void {
+    if (this.formularioRegistro.invalid) {
+      this.toastr.error('Por favor, completa los campos correctamente.');
+      return;
+    }
+
+    const { name, email, password, confirmPassword } = this.formularioRegistro.value;
 
     if (password !== confirmPassword) {
-      console.log('Las contraseñas no coinciden');
-      this.toastr.error('Las contraseñas no coinciden', 'Error en registro');
+      this.toastr.error('Las contraseñas no coinciden.');
       return;
     }
 
-    console.log('Esta es la información obtenida del formulario de registro: ', this.formularioRegistro.value);
-    this.toastr.success('Registro exitoso', '¡Éxito!');
+    const nuevoUsuario = { name, email, password };
+
+    // Aquí llamarías a un servicio de registro si lo tuvieras implementado
+    // Ejemplo: this.loginService.registrarUsuario(nuevoUsuario).subscribe(...)
+    this.toastr.success('Registro exitoso. Ahora puedes iniciar sesión.');
+    this.formularioRegistro.reset();
   }
 }

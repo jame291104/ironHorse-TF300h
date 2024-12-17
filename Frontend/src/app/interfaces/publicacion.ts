@@ -4,7 +4,7 @@ export interface Post {
   
     // Contenido del post
     content: string; // requerido
-  
+    
     // Nombre del autor del post
     author?: string; // opcional
   

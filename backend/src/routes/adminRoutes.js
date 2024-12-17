@@ -12,7 +12,7 @@ import authMiddleware from "../middleware/auth.js";
 const adminRouter = express.Router();
 
 // Ruta para crear un nuevo administrador
-adminRouter.post("/crear", authMiddleware("superadmin"), createAdmin);
+adminRouter.post("/crear",  createAdmin);
 
 // Ruta para obtener todos los administradores
 adminRouter.get("/obtener", authMiddleware("superadmin"), getAllAdmins);

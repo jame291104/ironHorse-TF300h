@@ -13,11 +13,10 @@ export class AdminService {
 
   private apiUrl = 'http://localhost:9000/admin';
 
-    // Petición POST: Crear un admin
-    postAdmin(admin: Admin) {
-      return this._httpClient.post(this.apiUrl + '/crear', admin);
-    }
-
+// admin.service.ts
+postAdmin(user: { email: string; password: string }) {
+  return this._httpClient.post(this.apiUrl + '/login', user);
+}
 // Peticion Get: Obtener
     getAdmin() {
       return this._httpClient.get(this.apiUrl + '/obtener');
