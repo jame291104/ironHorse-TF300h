@@ -79,7 +79,7 @@ export class LoginService {
   redireccionar(){
     // Si es admin -> redireciona a panel de control
     if(this.esAdmin()){
-      this._router.navigate(['/dashboard']);
+      this._router.navigate(['/admin']);
 
     }else {
       // Si no -> redireciona a la página de inicio
