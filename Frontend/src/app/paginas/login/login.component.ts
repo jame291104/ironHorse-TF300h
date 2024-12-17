@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,9 @@ import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angula
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+
+  constructor(private toastr: ToastrService) {}
+
   // Formulario de login
   formularioLogin = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]), // Validación de email
@@ -28,19 +32,30 @@ export class LoginComponent {
   handleLoginSubmit() {
     if (this.formularioLogin.valid) {
       console.log('Esta es la información obtenida del formulario de login: ', this.formularioLogin.value);
-      // Aquí iría la lógica para hacer la llamada al servicio de login
+      this.toastr.success('Inicio de sesión exitoso', '¡Éxito!');
     } else {
       console.log('Formulario de login inválido');
+      this.toastr.error('Por favor complete todos los campos correctamente', 'Error en inicio de sesión');
     }
   }
 
   // Manejar el submit de registro
   handleRegisterSubmit() {
-    if (this.formularioRegistro.valid) {
-      console.log('Esta es la información obtenida del formulario de registro: ', this.formularioRegistro.value);
-      // Aquí iría la lógica para hacer la llamada al servicio de registro
-    } else {
+    const { password, confirmPassword } = this.formularioRegistro.value;
+
+    if (this.formularioRegistro.invalid) {
       console.log('Formulario de registro inválido');
+      this.toastr.error('Por favor complete todos los campos correctamente', 'Error en registro');
+      return;
     }
+
+    if (password !== confirmPassword) {
+      console.log('Las contraseñas no coinciden');
+      this.toastr.error('Las contraseñas no coinciden', 'Error en registro');
+      return;
+    }
+
+    console.log('Esta es la información obtenida del formulario de registro: ', this.formularioRegistro.value);
+    this.toastr.success('Registro exitoso', '¡Éxito!');
   }
 }
