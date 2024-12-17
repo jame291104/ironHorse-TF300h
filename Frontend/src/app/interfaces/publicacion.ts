@@ -1,4 +1,8 @@
 export interface Post {
+  
+    //Id del articulo
+    _id: string;
+
     // Título del post
     title: string; // requerido
   

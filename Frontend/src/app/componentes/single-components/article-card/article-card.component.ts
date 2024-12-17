@@ -3,6 +3,7 @@ import { PublicacionService } from '../../../services/publicacion.service';
 import { ToastrService } from 'ngx-toastr';
 import { Post } from '../../../interfaces/publicacion';
 import { NgFor } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-article-card',
@@ -12,6 +13,8 @@ import { NgFor } from '@angular/common';
   styleUrl: './article-card.component.css'
 })
 export class ArticleCardComponent {
+
+  constructor(private router: Router) {}
 
   //1. Injectamos servicios o dependencias necesarias
 
@@ -40,6 +43,11 @@ export class ArticleCardComponent {
       }
     })
 
+  }
+
+  //Funcion para redireccionar a la vista detallada de lun articulo por el id
+  goToDetailView(id: string){
+      this.router.navigate(['/blog-page/article', id])
   }
 
   //Al montarse ejecutamos la funcion

@@ -47,7 +47,7 @@ export const routes: Routes = [
     component: BlogComponent,
     title: 'blog',
     children: [
-      { path: 'article', component: ArticleComponent, title: 'article' },
+      { path: 'article/:id', component: ArticleComponent, title: 'article' },
       { path: 'meetings', component: MeetingsComponent, title: 'meetings' },
     ],
   },
