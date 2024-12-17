@@ -28,7 +28,7 @@
           <p class="card-text"><strong>Categoría:</strong> {{post.category}}</p>
           <p class="card-text"><strong>Publicado el:</strong> {{post.createdAt}}</p>
           <p class="card-text"><strong>Autor:</strong> {{post.author}}</p>
-          <a href="./pages/blog.html" class="btn btn-primary mt-auto">Ver más</a>
+          <a class="btn btn-primary mt-auto" (click)="goToDetailView(post._id)">Ver más</a>
         </div>
       </div>
     </div>
