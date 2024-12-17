@@ -85,8 +85,7 @@ export class LoginComponent implements OnInit {
 
     const nuevoUsuario = { name, email, password };
 
-    // Aquí llamarías a un servicio de registro si lo tuvieras implementado
-    // Ejemplo: this.loginService.registrarUsuario(nuevoUsuario).subscribe(...)
+    
     this.toastr.success('Registro exitoso. Ahora puedes iniciar sesión.');
     this.formularioRegistro.reset();
   }
