@@ -1,12 +1,15 @@
 import { Component, inject } from '@angular/core';
-import { NavBarComponent } from '../../../componentes/nav-bar/nav-bar.component';
+import { RouterLink } from '@angular/router';
+import { ArticleCardComponent } from '../../../componentes/single-components/article-card/article-card.component';
+import { FooterComponent } from '../../../componentes/footer/footer.component';
 import { ActivatedRoute } from '@angular/router';
 import { Post } from '../../../interfaces/publicacion';
 import { PublicacionService } from '../../../services/publicacion.service';
+
 @Component({
   selector: 'app-article',
   standalone: true,
-  imports: [NavBarComponent],
+  imports: [ ArticleCardComponent, RouterLink, FooterComponent],
   templateUrl: './article.component.html',
   styleUrl: './article.component.css'
 })
@@ -16,10 +19,11 @@ export class ArticleComponent {
   constructor(private route: ActivatedRoute) {}
 
   _publicacionService = inject(PublicacionService);
-
+  
 
   route_param: string | null = "";
   id: string = "";
+  html_content: string = "";
 
   publicacion : Post = {
     _id: '',
@@ -37,7 +41,9 @@ export class ArticleComponent {
       next: (res: any) => {
         // Si funciona
         this.publicacion = res
+        this.html_content = res.content
         console.log("RES", res);
+        console.log(this.html_content)
         
       },
       error: (error: any) => {

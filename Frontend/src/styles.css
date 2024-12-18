@@ -11,6 +11,8 @@
 :root {
     --color-text: #FF9F34;
     --secondo-color: #0072F0;
+    --third-color: #2A4858;
+    --dark-grey: #272727;
     --font-text: 'Bebas Neue', sans-serif;
     --second-font: 'Lato', sans-serif;
 }

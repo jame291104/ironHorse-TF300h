@@ -55,11 +55,11 @@
                     <h4>Usuario Dashboard</h4>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Crear Publicación</a>
+                            <a  routerLink="articles" class="nav-link text-white">Crear Publicación</a>
                         </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Ver publicación</a>
+                            <a class="nav-link text-white" routerLink="articles">Ver publicación</a>
                         </li>
                        
                     </ul>
@@ -67,11 +67,11 @@
             </div>
 
             <!-- Main Content -->
-            <div class="col-md-10">
+            <!-- <div class="col-md-10">
                 <div class="container mt-4">
                     <h2>Bienvenido</h2>
                     <div class="row">
-                        <!-- Crear Publicación Card -->
+                        
                         <div class="col-md-3">
                             <div class="card">
                                 <div class="card-body">
@@ -83,23 +83,23 @@
                         </div>
 
                        
-                        <!-- Ver Usuarios Card -->
+                        
                         <div class="col-md-3">
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">Ver Publicación</h5>
                                     <p class="card-text">Haz clic aquí para ver los publicación</p>
-                                    <a href="#" class="btn btn-info">Ver Publicación</a>
+                                    <a routerLink="articles" class="btn btn-info">Ver Publicación</a>
                                 </div>
                             </div>
                         </div>
 
                     </div>
                 </div>
-            </div>
+            </div> -->
 
+            <router-outlet></router-outlet>
         </div>
     </div>
 
 
-<router-outlet></router-outlet>
