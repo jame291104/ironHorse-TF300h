@@ -1,0 +1,32 @@
+<p>tiptap works!</p>
+<div *ngIf="editor" class="container">
+    <div class="control-group">
+      <div class="button-group">
+        <!-- <button (click)="editor.chain().focus().toggleBold().run()">Bold</button> -->
+        <button
+          (click)="editor.chain().focus().toggleBold().run()"
+          [disabled]="!editor.can().chain().focus().toggleBold().run()"
+          [class.is-active]="editor.isActive('bold')"
+        >
+          Bold
+        </button>
+        <button
+          (click)="editor.chain().focus().toggleItalic().run()"
+          [disabled]="!editor.can().chain().focus().toggleItalic().run()"
+          [class.is-active]="editor.isActive('italic')"
+        >
+          Italic
+        </button>
+        <button (click)="editor.chain().focus().undo().run()" [disabled]="!editor.can().chain().focus().undo().run()">
+          Undo
+        </button>
+        <button (click)="editor.chain().focus().redo().run()" [disabled]="!editor.can().chain().focus().redo().run()">
+          Redo
+        </button>
+        <button (click)="editor.chain().focus().setColor('#958DF1').run()" [class.is-active]="editor.isActive('textStyle', { color: '#958DF1' })">
+          Purple
+        </button>
+      </div>
+    </div>
+    <!-- <editor-content [editor]="editor"></editor-content> -->
+  </div>
