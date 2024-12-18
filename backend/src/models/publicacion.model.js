@@ -1,20 +1,24 @@
 import mongoose from 'mongoose';
 
 const postSchema = new mongoose.Schema({
-  //titulo del post
-    title: { type: String, required: true },
-  // contenido del post
-    content: { type: String, required: true },
-  // nombre de autor del post
-    author: { type: String, required: false },
-  // categoria del post si es noticias,mantenimientos de moto,rutas para roda,modelos de motos
-    category: { type: String, required: false },
-  // fecha del post
+  // Título del post
+  title: { type: String, required: true },
+  // Contenido del post
+  content: { type: String, required: true },
+  // Nombre del autor del post
+  author: { type: String, required: false },
+  // Categoría del post (noticias, mantenimientos de moto, rutas para rodar, modelos de motos)
+  category: { type: String, required: false },
+  // Fecha de creación del post
   createdAt: { type: Date, default: Date.now },
-  //actualizar post
-  updatedAt: { type: Date }, // TO DO JESUS: Predefinir la fecha de actualizacion con la fecha de creacion para evitar que se vaya vacía
- // ver numero de vistas
+  // Fecha de actualización del post
+  updatedAt: { type: Date, default: Date.now },
+  // Número de vistas
   views: { type: Number, default: 0 },
+  // URL de la imagen asociada al post
+  image: { type: String, required: false },
+  // Descripción breve del post
+  description: { type: String, required: false },
 });
 
 export default mongoose.model('post', postSchema);
