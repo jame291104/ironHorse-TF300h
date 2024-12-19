@@ -36,3 +36,30 @@ header{
     width: 70vw;
     margin-left: 300px;
 }
+
+ul{
+    width: 100%;
+}
+
+.nav-item-admin{
+    border-bottom: 1px solid #8f8f8f;
+    text-align: left;
+    line-height: 24px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.nav-item-admin a{
+    text-decoration: none;
+    color: #dfdfdf;
+}
+
+.nav-item-admin a:hover{
+    color: white;
+    font-weight: 600;
+}
+
+.nav-item-admin:hover{
+    background-color: #4b4b4b;
+    
+}
