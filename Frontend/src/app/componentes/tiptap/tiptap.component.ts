@@ -4,6 +4,8 @@ import StarterKit from '@tiptap/starter-kit';
 import Color from '@tiptap/extension-color';
 import ListItem from '@tiptap/extension-list-item';
 import TextStyle from '@tiptap/extension-text-style';
+// import { TiptapModule } from 'ngx-tiptap-editor';
+
 import { NgIf } from '@angular/common';
 
 @Component({
