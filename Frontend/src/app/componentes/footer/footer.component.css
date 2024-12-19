@@ -57,7 +57,7 @@ footer p{
 }
 /* diseño responsive */
 /*  responsividad para dispositivos pequeños */
-@media (max-width: 390px) {
+@media (max-width: 768px) {
     .links ul{
         flex-direction: column;
     }
