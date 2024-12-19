@@ -3,12 +3,12 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 import { LoginService } from '../../services/login.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { RouterLink } from '@angular/router';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NgIf],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -39,11 +39,18 @@ export class LoginComponent implements OnInit {
   // Inicialización del formulario de registro
   private initRegisterForm(): FormGroup {
     return this.fb.group({
-      name: ['', [Validators.required]],
+      username: ['', [Validators.required]], // Cambié 'userName' por 'username'
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required]]
-    });
+    }, { validator: this.passwordMatchValidator });
+  }
+
+  // Validación de contraseñas coincidentes
+  passwordMatchValidator(group: FormGroup): { [key: string]: boolean } | null {
+    const password = group.get('password')?.value;
+    const confirmPassword = group.get('confirmPassword')?.value;
+    return password === confirmPassword ? null : { 'mismatch': true };
   }
 
   // Manejo del formulario de inicio de sesión
@@ -64,7 +71,7 @@ export class LoginComponent implements OnInit {
       },
       error: (err) => {
         this.toastr.error('Error al iniciar sesión. Verifica tus credenciales.');
-        console.error(err);
+        console.error('Error al iniciar sesión:', err);
       }
     });
   }
@@ -76,17 +83,26 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    const { name, email, password, confirmPassword } = this.formularioRegistro.value;
+    const { username, email, password, confirmPassword } = this.formularioRegistro.value;
 
+    // Verificación de contraseñas
     if (password !== confirmPassword) {
       this.toastr.error('Las contraseñas no coinciden.');
       return;
     }
 
-    const nuevoUsuario = { name, email, password };
+    const nuevoUsuario = { username, email, password };
 
-    
-    this.toastr.success('Registro exitoso. Ahora puedes iniciar sesión.');
-    this.formularioRegistro.reset();
+    this.loginService.registroUsuario(nuevoUsuario).subscribe({
+      next: (response) => {
+        this.toastr.success('Registro exitoso. Ahora puedes iniciar sesión.');
+        this.formularioRegistro.reset();
+      },
+      error: (err) => {
+        console.error('Error al registrar usuario:', err);
+        const errorMsg = err?.error?.mensaje || 'Error desconocido. Intenta nuevamente.';
+        this.toastr.error(`Error al registrar el usuario: ${errorMsg}`);
+      }
+    });
   }
 }

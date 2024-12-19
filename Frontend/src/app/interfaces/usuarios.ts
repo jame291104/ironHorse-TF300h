@@ -1,5 +1,5 @@
 export interface Usuarios {
-    userName: string;//requerido
+    username: string;//requerido
     email: string;//requerido
     password: string;//requerido
     role?: string;//
