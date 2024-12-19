@@ -1,108 +1,70 @@
-// EN ESTE SERVICIO, ESTAREMOS HACIENDO LA LÓGICA PARA GESTIONAR TODO LO RELACIONADO CON EL INICIO DE SESIÓN
-  /*
-    - Iniciar sesión
-    - Obtener el token 
-    - Validar roles (si es cliente o administrador)
-    - Identificar cuando está logeado o no
-    - Cierre de sesión
-  */
-
-// inyección de dependencias -> Usar dependencias
-import { Injectable, inject } from '@angular/core';
-// importar el httpClient para poder hacer peticiones al back
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-// importar el router nos va a permitir navegar en nuestro sitio web
 import { Router } from '@angular/router';
-// importar la dependencia para gestionar mensajes de respuesta
 import { ToastrService } from 'ngx-toastr';
-// importar la dependencia que nos permite decodificar el token
-import { jwtDecode } from "jwt-decode";
-// importar la interfaz para poder iniciar sesión
+import { Observable } from 'rxjs';
 import { Credenciales } from '../interfaces/credenciales';
-
+import { jwtDecode } from 'jwt-decode';  // Importación correcta
 
 @Injectable({
   providedIn: 'root'
 })
-
-
 export class LoginService {
 
-  // 1. INYECTAR DEPENDENCIAS -------------------------------------------
-  private _httpClient = inject(HttpClient);
-  private _router = inject(Router);
-  public _toastrService = inject(ToastrService);
+  private readonly URL_LOGIN = 'http://localhost:9000/login';
+  private readonly URL_REGISTER = 'http://localhost:9000/usuarios/crear';  // URL de registro
 
-  // 2. RUTA DE CONEXIÓN CON EL BACKEND ----------------------------------
-  // Esta ruta la sacamos del backend (postman)
-  private URL_LOGIN = 'http://localhost:9000/login';
+  constructor(
+    private _httpClient: HttpClient,
+    private _router: Router,
+    private _toastrService: ToastrService
+  ) {}
 
-  // 3. INICIAR SESIÓN (petición POST) -----------------------------------
-
-  // Para iniciar sesión, vamos a dar unas credenciales de ingreso, que se estructuraron en la interfaz
-  // Credenciales
-  inicioSesion(credencialesIngreso:Credenciales){
-    // vamos a hacer la petición POST
-    // tenemos que pasar la URL y el body
+  // Iniciar sesión
+  inicioSesion(credencialesIngreso: Credenciales): Observable<any> {
     return this._httpClient.post(this.URL_LOGIN, credencialesIngreso);
   }
 
-  // 4. OBTENER EL TOKEN -------------------------------------------------
-  // los tokens se almacenan de forma local -> almacenamiento temporal -> localStorage
-  // Si hay token significa que inició Sesión
-  // Si NO hay token significa que no inició sesión
-  obtenerToken(){
+  // Registrar usuario
+  registroUsuario(usuario: { username: string; email: string; password: string }): Observable<any> {
+    return this._httpClient.post(this.URL_REGISTER, usuario);
+  }
+
+  // Obtener el token
+  obtenerToken(): string | null {
     return localStorage.getItem('token');
   }
 
-  // 5. VALIDAR SI ES O NO ADMINISTRADOR ---------------------------------
-  // Esta funcion retorna verdadero si es admin o falso si no lo es
-  esAdmin(){
+  // Validar si es admin
+  esAdmin(): boolean {
     const token = this.obtenerToken();
-
-    // si hay token, decodifíquelo
-    if(token){
-      // decodifique la información del token
-      const decodificado: any = jwtDecode(token);
-
-    // si es Admin retorna true, si no retorna false
-    // condicional ternario
-    return decodificado.role === "superadmin" ? true : false;
-
-    }else {
-      console.error('No se encontró token')
-      return false
+    if (!token) {
+      console.error('No se encontró token');
+      return false;
     }
+
+    const decodificado: any = jwtDecode(token);  // Uso correcto de jwtDecode
+    return decodificado.role === "superadmin";
   }
 
-  // Vamos a redireccionar a la página de inicio o al panel de administración, dependiendo de si es Admin o no
-  redireccionar(){
-    // Si es admin -> redireciona a panel de control
-    if(this.esAdmin()){
+  // Redirigir dependiendo del rol
+  redireccionar(): void {
+    if (this.esAdmin()) {
       this._router.navigate(['/admin']);
-
-    }else {
-      // Si no -> redireciona a la página de inicio
+    } else {
       this._router.navigate(['/']);
     }
   }
 
-  // 6. SE INICIÓ SATISFACTORIAMENTE O NO SESIÓN --------------------------
-  // Nos devuelva falso o verdadero si inicioSesion o no
-  estaLogueado(){
-    // Si sí hay token devuelva true, si no devuelva false
-    return this.obtenerToken() ? true : false;
+  // Verificar si está logueado
+  estaLogueado(): boolean {
+    return !!this.obtenerToken();
   }
 
-
-  // 7. CIERRE DE SESIÓN --------------------------------------------------
-  cierreSesion(){
-    // mensaje del usuario
-    this._toastrService.info('Cierre se sesión exitoso, hasta la próxima!');
-    // nos elimina el token del local Storage
+  // Cerrar sesión
+  cierreSesion(): void {
+    this._toastrService.info('Cierre de sesión exitoso, hasta la próxima!');
     localStorage.removeItem('token');
-    //redirecciona a la página de inicio después de cerrar sesión
-    this._router.navigate(['/']); 
+    this._router.navigate(['/']);
   }
-
 }
