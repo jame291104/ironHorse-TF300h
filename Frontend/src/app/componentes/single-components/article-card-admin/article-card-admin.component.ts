@@ -6,13 +6,13 @@ import { NgFor } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-article-card',
+  selector: 'app-article-card-admin',
   standalone: true,
   imports: [NgFor],
-  templateUrl: './article-card.component.html',
-  styleUrl: './article-card.component.css'
+  templateUrl: './article-card-admin.component.html',
+  styleUrl: './article-card-admin.component.css'
 })
-export class ArticleCardComponent {
+export class ArticleCardAdminComponent {
 
   constructor(private router: Router) {}
 
@@ -44,14 +44,27 @@ export class ArticleCardComponent {
     })
 
   }
-
+  //Funcion para eliminar un articulo
+  deletePostById(id:string){
+    console.log("ID for Delete", id);
+    
+    this._publicacionService.deletePublicacion(id).subscribe({
+      next: (res: any) => {
+        console.log(res);
+        alert("Se eliminó el articulo")
+      },
+      error: (error: any) => {
+          //Si no funciona
+          alert("No se pudo eliminar")
+        console.log(error);
+      }
+    })
+  }
 
   //Funcion para redireccionar a la vista detallada de lun articulo por el id
   goToDetailView(id: string){
-      this.router.navigate(['/blog-page/article', id])
+      this.router.navigate(['admin/edit-articles', id])
   }
-
-  
 
   //Al montarse ejecutamos la funcion
   ngOnInit() {
@@ -70,6 +83,7 @@ export class ArticleCardComponent {
     
   // }
 
-  
-  
+  // deletePost(){
+    
+  // }
 }

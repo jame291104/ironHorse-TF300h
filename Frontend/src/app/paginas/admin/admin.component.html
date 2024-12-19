@@ -8,17 +8,21 @@
                     <p>Iron Horse</p>
                 </div>
             </a>
-            
+
             <!-- Toggler para dispositivos móviles -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-    
+
             <!-- Offcanvas navbar para móvil -->
-            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+                aria-labelledby="offcanvasDarkNavbarLabel">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Emprende una nueva aventura</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -46,28 +50,27 @@
             </div>
         </div>
     </nav>
-    </header>
-  <div class="container-fluid">
-        <div class="row">
-           
-            <div class="col-md-2 bg-dark text-white min-vh-100">
-                <div class="p-3">
-                    <h4>Usuario Dashboard</h4>
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a  routerLink="articles" class="nav-link text-white">Crear Publicación</a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a class="nav-link text-white" routerLink="articles">Ver publicación</a>
-                        </li>
-                       
-                    </ul>
-                </div>
-            </div>
+</header>
 
-            <!-- Main Content -->
-            <!-- <div class="col-md-10">
+<div class="container-fluid">
+    <div class="admin-view-container" >
+
+        <div class="admin-panel-container">
+                <h4>Usuario Dashboard</h4>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a routerLink="articles" class="nav-link text-white">Crear Publicación</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" routerLink="articles">Ver publicación</a>
+                    </li>
+
+                </ul>
+        </div>
+
+        <!-- Main Content -->
+        <!-- <div class="col-md-10">
                 <div class="container mt-4">
                     <h2>Bienvenido</h2>
                     <div class="row">
@@ -97,9 +100,8 @@
                     </div>
                 </div>
             </div> -->
-
+        <div class="router-outlet-container">
             <router-outlet></router-outlet>
         </div>
     </div>
-
-
+</div>
