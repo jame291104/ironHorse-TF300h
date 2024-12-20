@@ -3,9 +3,11 @@ import mongoose from 'mongoose';
 const postSchema = new mongoose.Schema({
   //titulo del post
     title: { type: String, required: true },
+    //campo Image: string, required
+    image_url: { type: String, required: true },
+    //campo description: string, required
+    description: { type: String, required: true },
   // contenido del post
-  //campo Image: string, required
-  //campo description: string, required
     content: { type: String, required: true },
   // nombre de autor del post
     author: { type: String, required: false },
