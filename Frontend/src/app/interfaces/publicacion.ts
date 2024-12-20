@@ -6,7 +6,9 @@ export interface Post {
     // Título del post
     title: string; // requerido
     //campo Image: string, required
+    image_url: string;
     //campo description: string, required
+    description: string;
     // Contenido del post
     content: string; // requerido
     

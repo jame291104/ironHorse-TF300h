@@ -10,5 +10,8 @@ import { NavBarComponent } from "../../componentes/nav-bar/nav-bar.component";
   styleUrl: './admin.component.css'
 })
 export class AdminComponent {
-
+  
+  goToCreateArticle() {
+    window.location.href = "http://localhost:5173/create-article-view?token=" + localStorage.getItem("token")
+  }
 }

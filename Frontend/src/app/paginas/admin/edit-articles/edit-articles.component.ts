@@ -23,6 +23,8 @@ export class EditArticlesComponent {
       publicacion : Post = {
         _id: '',
         title: '',
+        image_url: "",
+        description: "",
         content: '',
         author: '',
         category: '',

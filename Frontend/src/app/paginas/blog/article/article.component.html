@@ -69,11 +69,11 @@
                   <a routerLink="/">Home</a>
                   <p> / Articulos</p>
               </nav>
-            <h1>CONSEJOS PARA ANDAR<br> EN MOTO EN FORMA SEGURA</h1>
-            <p>Escrito por: Jesus y Alvaro</p>
+            <h1>{{publicacion.title}}</h1>
+            <p>Escrito por: {{publicacion.author}}</p>
         </div>
         <div class="image-content">
-            <img src="../assets/blog.png" alt="foto de articulo">
+            <img src={{publicacion.image_url}} alt="foto de articulo">
         </div>
     </section>
 </header>
