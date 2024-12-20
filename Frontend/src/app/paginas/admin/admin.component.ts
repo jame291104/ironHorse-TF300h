@@ -9,5 +9,8 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './admin.component.css'
 })
 export class AdminComponent {
-
+  
+  goToCreateArticle() {
+    window.location.href = "http://localhost:5173/create-article-view?token=" + localStorage.getItem("token")
+  }
 }

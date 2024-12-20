@@ -28,6 +28,8 @@ export class ArticleComponent {
   publicacion : Post = {
     _id: '',
     title: '',
+    image_url: "",
+    description: "",
     content: '',
     author: '',
     category: '',
