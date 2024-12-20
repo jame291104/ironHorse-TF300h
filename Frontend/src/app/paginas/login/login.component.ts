@@ -4,11 +4,12 @@ import { LoginService } from '../../services/login.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
+import { NavBarComponent } from "../../componentes/nav-bar/nav-bar.component";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, NgIf],
+  imports: [ReactiveFormsModule, NgIf, NavBarComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })

@@ -1,7 +1,6 @@
-<header>
+<header *ngIf="isHomePage">
   <nav class="navbar navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
-      <!-- <a class="navbar-brand" href="#">BIKERLOG</a> -->
       <a class="navbar-brand" href="#">
         <div class="container-logo">
           <p>Iron Horse</p>
@@ -21,28 +20,28 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item">
-              <a class="nav-link"  routerLink="/">Home</a>
+              <a class="nav-link" routerLink="/">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" routerLink="/blog-page">Blog</a>
             </li>
-            <li class="nav-item">
+            <!-- Display 'Iniciar Sesión' only if not logged in -->
+            <li *ngIf="!isLogged" class="nav-item">
               <a class="nav-link" routerLink="/login">Iniciar Sesión</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" routerLink="/sobre-nosotros">Sobre nosotros</a>
             </li>
             <li class="nav-item">
-            </li>
-            <li class="nav-item">
               <a class="nav-link" routerLink="/admin">Admin Dashboard</a>
             </li>
-    
+            <!-- Show 'Cerrar sesión' only if logged in -->
+            <li *ngIf="isLogged" class="nav-item">
+              <button class="btn btn-info" (click)="cerrarSesion()">Cierre de sesión</button>
+            </li>
           </ul>
-        
         </div>
       </div>
     </div>
   </nav>
-  
 </header>
