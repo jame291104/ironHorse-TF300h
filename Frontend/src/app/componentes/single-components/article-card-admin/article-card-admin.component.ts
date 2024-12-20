@@ -25,6 +25,9 @@ export class ArticleCardAdminComponent {
 
   allPosts : Post[] = []
 
+  token: string | null  = "";
+  
+
   //3. Creamos los metodos para las peticiones http al backend
 
   getPosts(){
@@ -63,7 +66,10 @@ export class ArticleCardAdminComponent {
 
   //Funcion para redireccionar a la vista detallada de lun articulo por el id
   goToDetailView(id: string){
-      this.router.navigate(['admin/edit-articles', id])
+    
+      this.token = localStorage.getItem("token") ?? "null"; 
+      window.location.href = `http://localhost:5173/article-edition-view/?article-id=${id}&token=${this.token}&action=${"edit"}`
+      // this.router.navigate(['http://localhost:5173/', id])
   }
 
   //Al montarse ejecutamos la funcion
