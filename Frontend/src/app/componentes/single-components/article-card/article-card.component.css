@@ -5,53 +5,90 @@ body {
     margin: 0;
     padding: 0;
   }
-  
-  /* Container for Cards */
-  .container {
-    max-width: 1200px;
-  }
-  
-  /* Card Styling */
-  .card {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Card Image */
-  .card-img-top {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  /* Card Body */
-  .card-body {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* Button */
-  .btn-primary {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3;
-  }
+
+  /* Container Cards */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Card estilo*/
+.card {
+  background: rgba(255, 255, 255, 0.8); /* Efecto glass */
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: none;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Card Image */
+.card-img-top {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 15px 15px 0 0;
+}
+
+/* Card Body */
+.card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Card Title */
+.card-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+/* Card Description */
+.card-text.description {
+  font-size: 0.95rem;
+  color: #555;
+  max-height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+
+.card-text small {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* Button */
+.btn-primary {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-top: auto;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #0056b3, #003f80);
+  transform: scale(1.05);
+}
+
   
