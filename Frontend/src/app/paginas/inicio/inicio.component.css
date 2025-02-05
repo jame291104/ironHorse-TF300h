@@ -2,9 +2,10 @@
     position: relative;
     width: 100vw;
     height: 500px;
-    background: url('../../../../public/assets/Bikerlog-image-main.png') ;
+    background: url('../../../../public/assets/Bikerlog-image-main.png') no-repeat center center; 
+    background-size: cover; 
     display: flex;
-    align-items: center;
+    align-items: center; 
     justify-content: center;
     text-align: center;
     color: white;
