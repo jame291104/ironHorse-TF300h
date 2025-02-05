@@ -253,8 +253,13 @@
         grid-template-columns: repeat(1, 1fr);
     }
 
+    .porcentaje {
+        padding: 5vh 0px;      
+      }
+    
+
     .stat-item {
-        font-size: 1.2rem;
+        font-size: 1.8rem;
         padding: 15px;
     }
 }
