@@ -13,75 +13,11 @@
 
 }
 
-body{
-    background-color: #fff;
-    margin: 0;
-    padding: 0%;
-    overflow-x: hidden;
-    box-sizing: border-box;
-
-}
-
-main{
-    overflow: hidden;
-}
 
 
 .container-logo p{
     font-family: "Bebas Neue";
     font-size: 40px;
-}
-
-.banner-section{
-    background-image: url('/assets/Bikerlog-image-main.png'); /* Imagen de fondo del banner */
-    background-size: cover;
-    border:2px solid red;
-    background-position: center;
-    background-repeat: repeat;
-    height: 600px;
-    width: 100vw;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    margin-top: 100px;
-    justify-content: center;
-    align-items: start;
-}
-
-.banner-section h1{
-    color: white;
-    margin-left: 80px;
-    font-size: 150px;
-    font-family: "Bebas Neue";
-    line-height: 140px;
-    margin-bottom: 0;
-    
-}
-.banner-section p {
-    color: white;
-    margin-left: 80px;
-    font-size: 30px;
-    background-color: rgb(50, 50, 50);
-    padding: 6px 10px;
-}
-
-.banner-section button {
-    padding: 6px 40px;
-    border-radius: 10px;
-    font-family: "Bebas Neue";
-    font-size: 30px;
-    margin: 20px 10px 0px 80px;
-    border: none;
-    background-color: #FF9F34;
-    color: #333333;
-    text-decoration: none;
-}
-
-.banner-section button:hover{
-    border: 2px solid #FF9F34;
-    background-color: #1a1a1a;
-    color: #fff;
 }
 
 header{
@@ -107,13 +43,6 @@ header{
 .banner-content .btn {
     font-size: 1.25rem;
     padding: 10px 20px;
-}
-body {
-    background-color: #fff;
-    margin: 0;
-    padding: 0%;
-    overflow-x: hidden;
-    box-sizing: border-box;
 }
 
 .titulo {
