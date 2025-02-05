@@ -117,7 +117,7 @@ body {
 
 /* --- Responsive Design --- */
 
-/* 📱 Dispositivos Pequeños */
+/*  Dispositivos Pequeños */
 @media (max-width: 768px) {
     .login-container {
         width: 95%;
@@ -146,7 +146,7 @@ body {
     }
 }
 
-/* 📱📏 Pantallas Muy Pequeñas */
+/*  Pantallas Muy Pequeñas */
 @media (max-width: 480px) {
     .login-container {
         width: 100%;
