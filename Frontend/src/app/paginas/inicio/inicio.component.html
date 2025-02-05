@@ -1,24 +1,15 @@
 <app-nav-bar></app-nav-bar>
-<section class="banner-section">
-    <h1>Iron Horse</h1>
-    <p>Más que una moto, un estilo de vida. Encuentra tu compañera perfecta y vive experiencias inolvidables sobre el asfalto.</p>
-    <a routerLink="/login">¡A RODAR!</a>
-  </section>
-<main>
-  <!-- Section for Cards -->
-  <section id="cards-section" class="py-6">
-    <div class="container">
-      <!-- Título H1 alineado a la izquierda -->
-      <h1 class="text-start mb-2">
-        <span class="word-1">Articulos</span>
-        <span class="word-2">recientes</span>
-      </h1>
-      <!-- Párrafo alineado a la izquierda -->
-      <p class="text-start">Explora nuestras aventuras</p>
+<section class="banner">
+  <div class="banner-content">
+      <h1>Descubre la Libertad en Dos Ruedas</h1>
+      <p>Explora nuevas rutas, siente la adrenalina y vive la pasión por las motos.</p>
+      <a routerLink="/login" class="btn">Explorar Ahora</a>
+  </div>
+</section>
 
-      <app-article-card></app-article-card>
-    </div>
-  </section>
+
+<main>
+
   <section class="porcentaje">
     <div class="stats-container">
       <div class="stat-item">
@@ -39,6 +30,21 @@
       </div>
     </div>
   </section>
+  <!-- Section for Cards -->
+  <section id="cards-section" class="py-6">
+    <div class="container">
+      <!-- Título H1 alineado a la izquierda -->
+      <h1 class="text-start mb-2">
+        <span class="word-1">Articulos</span>
+        <span class="word-2">recientes</span>
+      </h1>
+      <!-- Párrafo alineado a la izquierda -->
+      <p class="text-start">Explora nuestras aventuras</p>
+
+      <app-article-card></app-article-card>
+    </div>
+  </section>
+ 
   
   <section class="rodadas-container">
     <h2 class="eventos">Próximos eventos y rodadas</h2>
