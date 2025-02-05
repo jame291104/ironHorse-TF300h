@@ -1,3 +1,4 @@
+/* --- Estilos Generales --- */
 body {
     background-image: url('../../../../public/assets/fondo.jpg'); 
     background-size: cover;  
@@ -5,34 +6,41 @@ body {
     width: 100%; 
     height: 100vh; 
     margin: 0; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
+/* --- Botón Home --- */
 .home-button-container {
-    position: absolute;
+    position: fixed;
     top: 20px;
     left: 20px;
+    z-index: 100;
 }
 
-/* Estilos generales para el contenedor del formulario */
+/* --- Contenedor del Formulario --- */
 .login-container {
-    max-width: 500px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 450px;
+    width: 90%;
+    padding: 25px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
-/* Estilos para los títulos */
+/* --- Títulos --- */
 .login-container h2 {
-    text-align: center;
     font-family: 'Arial', sans-serif;
     color: #333;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
-/* Estilos para las pestañas (tabs) */
+/* --- Pestañas (Tabs) --- */
 .nav-tabs {
+    display: flex;
     justify-content: center;
     border: none;
     margin-bottom: 20px;
@@ -40,10 +48,11 @@ body {
 
 .nav-tabs .nav-link {
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #007bff;
-    padding: 10px 20px;
-    border-radius: 20px;
+    padding: 10px 15px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
 }
 
 .nav-tabs .nav-link.active {
@@ -51,30 +60,25 @@ body {
     color: white;
 }
 
-.nav-item + .nav-item {
-    margin-left: 10px;
-}
-
-/* Estilos para los formularios */
+/* --- Formularios --- */
 .form-label {
     font-weight: 600;
     color: #495057;
 }
 
-/* Estilo de los campos de entrada */
 .form-control {
-    border-radius: 10px;
+    border-radius: 8px;
     border: 1px solid #ccc;
     font-size: 1rem;
     padding: 10px;
 }
 
-/* Estilo de los botones */
+/* --- Botones --- */
 .btn {
     width: 100%;
     padding: 12px;
-    font-size: 1.1rem;
-    border-radius: 10px;
+    font-size: 1rem;
+    border-radius: 8px;
     transition: background-color 0.3s ease;
 }
 
@@ -96,24 +100,61 @@ body {
     background-color: #218838;
 }
 
-/* Estilos para la ayuda de texto */
+/* --- Ayuda de Texto --- */
 .form-text {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #6c757d;
 }
 
-/* estilo para la caja de verificación */
 .form-check-label {
     font-weight: normal;
 }
 
-/* Espaciado de los elementos */
+/* --- Espaciado --- */
 .mb-3 {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-/* Agregar un margen superior */
-.py-6 {
-    padding-top: 30px;
-    padding-bottom: 30px;
+/* --- Responsive Design --- */
+
+/* 📱 Dispositivos Pequeños */
+@media (max-width: 768px) {
+    .login-container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .nav-tabs {
+        flex-direction: column;
+    }
+
+    .nav-tabs .nav-link {
+        width: 100%;
+        text-align: center;
+        padding: 8px;
+        margin-bottom: 5px;
+    }
+
+    .btn {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
+    
+    .home-button-container {
+        top: 10px;
+        left: 10px;
+    }
+}
+
+/* 📱📏 Pantallas Muy Pequeñas */
+@media (max-width: 480px) {
+    .login-container {
+        width: 100%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .home-button-container {
+        display: none;
+    }
 }
