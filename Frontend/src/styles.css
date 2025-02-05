@@ -5,9 +5,12 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    
 }
 
+html{
+    overflow-y: auto;
+}
 :root {
     --color-text: #FF9F34;
     --secondo-color: #0072F0;
@@ -17,10 +20,12 @@
     --second-font: 'Lato', sans-serif;
 }
 
+
 body {
     background-color: #fff;
     font-family: var(--second-font);
-    overflow-x: hidden;
+    overflow-x: hidden;  
+    
 }
 
 .container-logo p {
@@ -28,6 +33,3 @@ body {
     font-size: 40px;
 }
 
-header {
-    padding-bottom: 100px;
-}
