@@ -5,11 +5,12 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { NavBarComponent } from "../../componentes/nav-bar/nav-bar.component";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, NgIf, NavBarComponent],
+  imports: [ReactiveFormsModule, NgIf, NavBarComponent,RouterLink],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
