@@ -1,65 +1,71 @@
-/* Sección del banner */
-.banner-section {
-    background-image: url('../../../../public/assets/Bikerlog-image-main.png'); /* Imagen de fondo */
-    background-size: cover;
-    background-position: center;
-    height: 600px;
-    width: 100%;
-    
+.banner {
+    position: relative;
+    width: 100vw;
+    height: 500px;
+    background: url('../../../../public/assets/Bikerlog-image-main.png') ;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    align-items: flex-start;
-    padding-left: 80px;
-  
-}
-
-.banner-section h1 {
+    text-align: center;
     color: white;
-    font-size: 6rem;
-    font-family: var(--font-text);
-    line-height: 1.2;
-    margin-bottom: 0;
 }
 
-.banner-section p {
-    color: white;
-    font-size: 1.5rem;
-    background-color: rgba(50, 50, 50, 0.7);
-    padding: 10px 15px;
+.banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
 }
 
-.banner-section a {
-    padding: 10px 30px;
+.banner-content {
+    position: relative;
+    max-width: 600px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
-    font-family: var(--font-text);
-    font-size: 1.5rem;
-    margin-top: 20px;
-    border: none;
-    background-color: var(--color-text);
-    color: #333;
+    backdrop-filter: blur(5px);
+}
+
+.banner h1 {
+    font-size: 3rem;
+    font-family: "Bebas Neue", sans-serif;
+    margin-bottom: 10px;
+}
+
+.banner p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    color: white;
+    background: #ff4500;
+    border-radius: 5px;
     text-decoration: none;
+    transition: background 0.3s;
 }
 
-
-.banner-section a:hover {
-    border: 2px solid var(--color-text);
-    background-color: #1a1a1a;
-    color: #fff;
+.btn:hover {
+    background: #cc3700;
 }
-
 
 
 /* Estilos para las palabras individuales en el título */
 .word-1 {
-    color: #333333; /* Cambia el color de 'Articulos' a azul */
+    color: #333333; 
     font-family: "Bebas Neue";
     margin-right: 6px;
 }
 
 
 .word-2 {
-    color: #0072F0; /* Cambia el color de 'recientes' a rojo */
+    color: #0072F0; 
     font-family: "Bebas Neue";
 }
 
@@ -67,7 +73,7 @@
 .card {
     display: flex;
     flex-direction: column;
-    height: 100%; /* Esto asegura que las tarjetas tengan la misma altura */
+    height: 100%; 
 }
 
 .card-img-top {
@@ -81,7 +87,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%; /* Ocupa toda la altura disponible de la tarjeta */
+    height: 100%;
 }
 
 .card-title {
@@ -91,12 +97,12 @@
 
 .card-text {
     font-size: 1rem;
-    flex-grow: 1; /* Hace que el párrafo ocupe el espacio restante */
+    flex-grow: 1; 
 }
 
 /* Botón al final */
 .btn {
-    margin-top: auto; /* Asegura que el botón se quede en la parte inferior */
+    margin-top: auto; 
 }
 
 /* Margen y padding consistentes */
@@ -193,9 +199,11 @@
 
 .porcentaje {
     display: flex;
-    justify-content: center;  /* Centra horizontalmente */
-    align-items: center;      /* Centra verticalmente */
-    flex-wrap: wrap;          /* Asegura que los items se ajusten en varias líneas si es necesario */
+    justify-content: center;  
+    padding-top: 30px;
+    align-items: center;      
+    flex-wrap: wrap;      
+        
   }
 
 .stats-container {
@@ -204,7 +212,7 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     max-width: 800px;
-    width: 100%; /* Para asegurarte de que sea responsivo */
+    width: 100%; 
   }
   
   .stat-item {
@@ -227,5 +235,25 @@
     .banner-section {
         padding-left: 40px;
     }
+    .banner-content h1 {
+        font-size: 3rem;
+    }
+    .banner-content p {
+        font-size: 1.2rem;
+    }
+
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
- 
+
+@media (max-width: 480px) {
+    .stats-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .stat-item {
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+}
