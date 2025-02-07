@@ -41,7 +41,7 @@ Conectamos motociclistas con preguntas con aquellos que tienen experiencia para 
 
 **Prerrequisitos:**
 
-* **Node.js y npm**: Descarga e instala la última versión desde [https://nodejs.org/](https://nodejs.org/).
+* **Node.js y npm**: Descarga e instala la última versión desde  [https://nodejs.org/](https://nodejs.org/).
 
 **Clonar el repositorio:**
 
