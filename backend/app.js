@@ -19,7 +19,7 @@ connectionMongo();
 app.use(cors()); //permisos para que el backend pueda ser usado en el navegador
 
 //Esto es para uso local
-// const port = process.env.PORT || 9000; 
+const port = process.env.PORT || 9000; 
 // console.log("PORT", port);
 
 //Confirguraciones para acceder al frontend
@@ -46,6 +46,6 @@ export default app;
 
 //Esto es para uso local
 // 3. Ejecutar el servidor
-// app.listen(port, () => {
-//   console.log("We are connected to IronHorse on port", port);
-// });
+app.listen(port, () => {
+  console.log("We are connected to IronHorse on port", port);
+});
