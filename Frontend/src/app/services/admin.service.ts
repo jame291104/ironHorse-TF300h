@@ -11,8 +11,9 @@ export class AdminService {
 
   private _httpClient = inject(HttpClient);
 
-  private apiUrl = 'http://localhost:9000/admin';
-
+  // private apiUrl = 'http://localhost:9000/admin'; // Esto es para usuo local
+  private apiUrl = 'http://137.184.85.36:9000/admin';
+  
 // admin.service.ts
 postAdmin(user: { email: string; password: string }) {
   return this._httpClient.post(this.apiUrl + '/login', user);

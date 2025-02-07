@@ -11,8 +11,13 @@ import { jwtDecode } from 'jwt-decode';  // Importación correcta
 })
 export class LoginService {
 
-  private readonly URL_LOGIN = 'http://localhost:9000/login';
-  private readonly URL_REGISTER = 'http://localhost:9000/usuarios/crear';  // URL de registro
+  private readonly URL_LOGIN = 'http://137.184.85.36:9000/login';
+  private readonly URL_REGISTER = 'http://137.184.85.36:9000/usuarios/crear';  // URL de registro
+
+  
+  //Esto es para uso local
+  // private readonly URL_LOGIN = 'http://localhost:9000/login';
+  // private readonly URL_REGISTER = 'http://localhost:9000/usuarios/crear';  // URL de registro
 
   constructor(
     private _httpClient: HttpClient,

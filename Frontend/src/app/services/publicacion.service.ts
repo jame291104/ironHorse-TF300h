@@ -11,7 +11,8 @@ export class PublicacionService {
     private _httpClient = inject(HttpClient);
 
     // 2. RUTA DE CONEXIÓN CON EL BACKEND ---------------------------------
-    private URL_PUBLICACIONES = 'http://localhost:9000/publicaciones';
+    // private URL_PUBLICACIONES = 'http://localhost:9000/publicaciones'; Esto es para uso local
+    private URL_PUBLICACIONES = 'http://137.184.85.36:9000/publicaciones';
 
     // Petición POST
   postPublicacion(publicacion:Post){

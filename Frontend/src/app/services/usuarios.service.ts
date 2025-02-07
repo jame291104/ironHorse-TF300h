@@ -11,7 +11,8 @@ export class UsuariosService {
 private _httpClient = inject(HttpClient);
 
 //ruta de conexion con el backend
-private apiUrl = 'http://localhost:9000/usuarios';
+//private apiUrl = 'http://localhost:9000/usuarios'; // Esto es para uso local
+private apiUrl = 'http://137.184.85.36:9000/usuarios';
 
 postUsuarios(user: Usuarios){
   return this._httpClient.post(this.apiUrl + '/crear',user);

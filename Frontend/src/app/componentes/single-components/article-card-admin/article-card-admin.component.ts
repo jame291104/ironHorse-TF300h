@@ -68,8 +68,7 @@ export class ArticleCardAdminComponent {
   goToDetailView(id: string){
     
       this.token = localStorage.getItem("token") ?? "null"; 
-      window.location.href = `http://localhost:5173/article-edition-view/?article-id=${id}&token=${this.token}&action=${"edit"}`
-      // this.router.navigate(['http://localhost:5173/', id])
+      window.location.href = `https://ironhorse-admin-editor.netlify.app/article-edition-view/?article-id=${id}&token=${this.token}&action=${"edit"}`
   }
 
   //Al montarse ejecutamos la funcion
